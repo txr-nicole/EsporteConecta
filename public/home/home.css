@@ -1,0 +1,8 @@
+.imgbanner{
+    height: 500px;
+    object-fit: cover;
+}
+.imgcard{
+    height: 150px;
+    object-fit: cover;
+}

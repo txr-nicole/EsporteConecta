@@ -3,6 +3,8 @@ const path = require("path");
 const principalRoutes = require("../src/routes/principal");
 const server = express();
 
+server.use(express.json());
+
 server.use(principalRoutes);
 
 server.use(express.static(path.join(__dirname, "../public")));
@@ -14,4 +16,3 @@ server.use((req, res) => {
 server.listen(8080, () => {
   console.log("http://localhost:8080");
 });
-

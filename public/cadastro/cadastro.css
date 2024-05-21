@@ -1,0 +1,14 @@
+.body {
+  background-image: url(../img/pexels-photo-54567.jpeg);
+  /* padding: 5px; */
+}
+
+.container {
+  backdrop-filter: blur(4.7px);
+  background: rgba(84, 214, 109, 0.67);
+  border: 1px solid rgba(84, 214, 109, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+  -webkit-backdrop-filter: blur(4.7px);
+}

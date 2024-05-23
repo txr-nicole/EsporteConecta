@@ -25,4 +25,14 @@ async function login(){
             dados: dadosEC
         })
     })
+    const data =  await res.json()
+    if (dadosEC.dadosLogin.email == data.email && dadosEC.dadosLogin.senha == data.senha){
+        alert("Bem vindo " + data.nome)
+        sessionStorage.setItem("user", JSON.stringify(data))
+        window.location.href = "http://localhost:8080/";
+    } else {
+        alert("Usuário não encontrado")
+    }
+
+    
 }

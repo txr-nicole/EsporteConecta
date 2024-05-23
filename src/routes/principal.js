@@ -7,11 +7,6 @@ router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../../public/home/home.html"));
 });
 
-router.get("/login/login.html", (req, res) => {
-  // res.json({resultado: dao.getUserByLogin(dados, function(results){
-  //   console.log(results);
-  // })})
-});
 
 router.post("/login/index.html", (req, res) => {
   const { dados } = req.body;
@@ -20,8 +15,15 @@ router.post("/login/index.html", (req, res) => {
     senha: dados.dadosLogin.senha,
   };
   dao.getUserByLogin(dados.dadosLogin.email, function (results) {
-    console.log(results);
+    const retr = {
+      id_usuario: results.id_usuario,
+      nome: results.nome,
+      email: results.email,
+      senha: results.senha,
+    };
+    res.json(retr)
   });
+
 });
 
 router.post("/cadastro/cadastro.html", (req, res) => {
@@ -44,6 +46,13 @@ router.post("/cadastro/cadastro.html", (req, res) => {
   dao.addUser(sql, function (results) {
     console.log(results);
   });
+});
+
+router.post("/usuario/index.html", (req, res)=>{
+  const {dados} = req.body
+  dao.getUserById(dados.id_usuario, function(results){
+    res.json(results)
+  })
 });
 
 module.exports = router;

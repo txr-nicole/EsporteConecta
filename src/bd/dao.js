@@ -13,13 +13,17 @@ function getAllUsers(callback) {
   // arrow function => 
   
   function getUserById(id, callback) {
-    connection.query('SELECT * FROM Usuarios WHERE id = ?', [id], (error, results, fields) => {
-      if (error) {
-        callback(error, null);
-      } else {
-        callback(results[0]);
+    connection.query(
+      "SELECT * FROM Usuarios WHERE id_usuario = ?",
+      [id],
+      (error, results, fields) => {
+        if (error) {
+          callback(error, null);
+        } else {
+          callback(results[0]);
+        }
       }
-    });
+    );
   }
   // 
   
